@@ -25,7 +25,7 @@
     </bean>
  -->
  
-    <bean id="countryDao" class="com.luxoft.springdb.lab3.dao.CountryDao">
+    <bean id="countryDao" class="com.fedoseev.lab2.dao.CountryDao">
         <property name="dataSource" ref="dataSource"/>
     </bean>
     
