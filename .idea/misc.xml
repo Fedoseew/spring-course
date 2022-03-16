@@ -7,6 +7,9 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../lab5_SpringMVC/pom.xml" />
         <option value="$PROJECT_DIR$/lab5_SpringMVC/pom.xml" />
+        <option value="$PROJECT_DIR$/lab1_IoC/pom.xml" />
+        <option value="$PROJECT_DIR$/lab2_SpringTx/pom.xml" />
+        <option value="$PROJECT_DIR$/lab3_SpringBoot/pom.xml" />
       </list>
     </option>
   </component>
