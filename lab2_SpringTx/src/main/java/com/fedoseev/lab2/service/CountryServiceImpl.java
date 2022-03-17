@@ -8,17 +8,16 @@ import org.springframework.transaction.annotation.Propagation;
 
 import com.fedoseev.lab2.dao.CountryDao;
 import com.fedoseev.lab2.model.Country;
+import org.springframework.transaction.annotation.Transactional;
 
-//@Repository is more convenient declaration for such a class than general @Service
 @Repository
+@Transactional
 public class CountryServiceImpl implements CountryService {
 
-	
 	@Autowired
 	private CountryDao countryDao;
 
-	public List<Country> getAllCountriesInsideTransaction(
-			Propagation propagation) {
+	public List<Country> getAllCountriesInsideTransaction(Propagation propagation) {
 		if (Propagation.REQUIRED.equals(propagation)) {
 			return getAllCountriesRequired();
 		} else if (Propagation.REQUIRES_NEW.equals(propagation)) {
@@ -36,26 +35,32 @@ public class CountryServiceImpl implements CountryService {
 		}
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED)
 	public List<Country> getAllCountriesRequired() {
 		return countryDao.getCountryList();
 	}
 
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public List<Country> getAllCountriesRequiresNew() {
 		return countryDao.getCountryList();
 	}
 
+	@Transactional(propagation = Propagation.SUPPORTS)
 	public List<Country> getAllCountriesSupports() {
 		return countryDao.getCountryList();
 	}
 
+	@Transactional(propagation = Propagation.NEVER)
 	public List<Country> getAllCountriesNever() {
 		return countryDao.getCountryList();
 	}
 
+	@Transactional(propagation = Propagation.MANDATORY)
 	public List<Country> getAllCountriesMandatory() {
 		return countryDao.getCountryList();
 	}
 
+	@Transactional(propagation = Propagation.NOT_SUPPORTED)
 	public List<Country> getAllCountriesNotSupported() {
 		return countryDao.getCountryList();
 	}
